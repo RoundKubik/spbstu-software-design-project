@@ -1,0 +1,3 @@
+package ru.spbstu_software_design_project.rickandmorty.domain.model
+
+interface ErrorEntity
