@@ -1,4 +1,7 @@
 package ru.spbstu_software_design_project.rickandmorty.presentation.detail
 
-class DetailScreen {
+import androidx.compose.runtime.Composable
+
+@Composable
+fun  DetailScreen() {
 }
