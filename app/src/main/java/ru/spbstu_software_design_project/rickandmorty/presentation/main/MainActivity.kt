@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import ru.spbstu_software_design_project.rickandmorty.R
+import ru.spbstu_software_design_project.rickandmorty.presentation.detail.DetailScreen
 import ru.spbstu_software_design_project.rickandmorty.presentation.list.CharactersScreenViewModel
 import ru.spbstu_software_design_project.rickandmorty.presentation.list.ListScreen
 import ru.spbstu_software_design_project.rickandmorty.ui.theme.MyApplicationTheme
@@ -16,7 +17,7 @@ class MainActivity : AppCompatActivity() {
 
         setContent {
             MyApplicationTheme {
-                ListScreen()
+                DetailScreen()
             }
         }
     }

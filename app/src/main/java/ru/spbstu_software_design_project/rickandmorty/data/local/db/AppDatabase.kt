@@ -6,10 +6,11 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import ru.spbstu_software_design_project.rickandmorty.data.converters.Converters
+import ru.spbstu_software_design_project.rickandmorty.data.local.model.CharacterDbEntity
 
 
 @Database(
-    entities = [Character::class], version = 1, exportSchema = false
+    entities = [CharacterDbEntity::class], version = 1, exportSchema = false
 )
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {

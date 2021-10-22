@@ -21,7 +21,7 @@ interface CharactersRepository {
      */
     fun getCharacter(id: Int)
 
-    fun getFavouriteCharacters()
+    fun getFavouriteCharacters() : List<Character>
 
     /**
      * insert Character to list of favourite character.

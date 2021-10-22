@@ -21,7 +21,7 @@ class CharactersRepositoryImpl(
         TODO("Not yet implemented")
     }
 
-    override fun getFavouriteCharacters() {
+    override fun getFavouriteCharacters() : List<Character>{
         TODO("Not yet implemented")
     }
 
