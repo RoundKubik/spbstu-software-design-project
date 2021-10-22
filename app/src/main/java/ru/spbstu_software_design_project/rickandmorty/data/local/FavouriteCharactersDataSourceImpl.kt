@@ -8,7 +8,7 @@ import ru.spbstu_software_design_project.rickandmorty.domain.model.Character
 import javax.inject.Inject
 
 
-class FavouriteCharactersDataSourceImpl @Inject constructor(
+class FavouriteCharactersDataSourceImpl  constructor(
     private val favouriteCharactersDao: FavouriteCharactersDao
 ) : FavouriteCharactersDataSource {
 
@@ -20,10 +20,10 @@ class FavouriteCharactersDataSourceImpl @Inject constructor(
     suspend fun getCharacter(id: Int) = favouriteCharactersDao.getCharacter(id).toCharacter()
 
     suspend fun insert(character: Character) {
-            favouriteCharactersDao.insert(mapCharacterToCharacterDbEntity(character))
+           // favouriteCharactersDao.insert(mapCharacterToCharacterDbEntity(character))
     }
 
     suspend fun replace(character: Character) {
-        favouriteCharactersDao.delete(mapCharacterToCharacterDbEntity(character))
+    //    favouriteCharactersDao.delete(mapCharacterToCharacterDbEntity(character))
     }
 }
