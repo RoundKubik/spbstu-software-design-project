@@ -1,6 +1,5 @@
 package ru.spbstu_software_design_project.rickandmorty.data.remote.api
 
-import io.reactivex.rxjava3.core.Single
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -13,7 +12,7 @@ interface RickAndMortyApiService {
     suspend fun getCharacters(): CharactersResponse
 
     @GET("character/?page={page}")
-    suspend fun getCharacters(@Path("page") page : Int) : Response<CharactersResponse>
+    suspend fun getCharacters(@Path("page") page: Int): Response<CharactersResponse>
 
     @GET("character/{id}")
     suspend fun getCharacter(@Path("id") id: Int): CharacterResponse

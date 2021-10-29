@@ -29,7 +29,7 @@ import ru.spbstu_software_design_project.rickandmorty.R
 @OptIn(ExperimentalCoilApi::class)
 @Preview
 @Composable
-fun DetailScreen() {
+fun DetailScreen(viewModel: CharacterDetailViewModel) {
     val character = remember {
         CharacterDetails(
             id = 1,

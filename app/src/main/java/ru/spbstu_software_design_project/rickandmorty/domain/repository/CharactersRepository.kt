@@ -2,6 +2,7 @@ package ru.spbstu_software_design_project.rickandmorty.domain.repository
 
 import androidx.paging.PagingSource
 import ru.spbstu_software_design_project.rickandmorty.domain.model.Character
+import ru.spbstu_software_design_project.rickandmorty.domain.model.CharacterDetails
 
 /**
  *  Repository, provides uploading data about characters from RickAndMorty Api - [https://rickandmortyapi.com/api]
@@ -19,7 +20,7 @@ interface CharactersRepository {
     /**
      * Upload character by character id
      */
-    fun getCharacter(id: Int)
+    fun getCharacter(id: Int) : CharacterDetails
 
     fun getFavouriteCharacters() : List<Character>
 

@@ -1,15 +1,18 @@
 package ru.spbstu_software_design_project.rickandmorty.data.local
 
+import ru.spbstu_software_design_project.rickandmorty.data.local.db.DetailCharactersDao
 import ru.spbstu_software_design_project.rickandmorty.data.local.db.FavouriteCharactersDao
 import ru.spbstu_software_design_project.rickandmorty.data.local.model.mapCharacterToCharacterDbEntity
 import ru.spbstu_software_design_project.rickandmorty.data.local.model.toCharacter
 import ru.spbstu_software_design_project.rickandmorty.data.source.FavouriteCharactersDataSource
 import ru.spbstu_software_design_project.rickandmorty.domain.model.Character
 import javax.inject.Inject
+import javax.inject.Singleton
 
-
-class FavouriteCharactersDataSourceImpl  constructor(
-    private val favouriteCharactersDao: FavouriteCharactersDao
+@Singleton
+class FavouriteCharactersDataSourceImpl @Inject  constructor(
+    private val favouriteCharactersDao: FavouriteCharactersDao,
+    private val detailCharactersDao: DetailCharactersDao
 ) : FavouriteCharactersDataSource {
 
     suspend fun getFavouriteCharacters() =

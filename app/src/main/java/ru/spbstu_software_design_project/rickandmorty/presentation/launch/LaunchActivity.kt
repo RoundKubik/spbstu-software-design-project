@@ -2,10 +2,10 @@ package ru.spbstu_software_design_project.rickandmorty.presentation.launch
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import dagger.hilt.android.AndroidEntryPoint
 import ru.spbstu_software_design_project.rickandmorty.R
 
-// TODO: add documentation 
-// TODO: add view binding and lottie animation 
+@AndroidEntryPoint
 class LaunchActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

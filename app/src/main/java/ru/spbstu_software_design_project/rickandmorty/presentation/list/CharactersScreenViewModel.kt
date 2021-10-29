@@ -18,8 +18,8 @@ import ru.spbstu_software_design_project.rickandmorty.domain.usecase.GetFavourit
 import ru.spbstu_software_design_project.rickandmorty.domain.usecase.ReplaceFromFavouritesUseCase
 import javax.inject.Inject
 
-
-class CharactersScreenViewModel  constructor(
+@HiltViewModel
+class CharactersScreenViewModel @Inject  constructor(
     private val getCharactersUseCase: GetCharactersUseCase,
     private val addToFavouritesUseCase: AddFavouritesUseCase,
     private val replaceFromFavouritesUseCase: ReplaceFromFavouritesUseCase,
