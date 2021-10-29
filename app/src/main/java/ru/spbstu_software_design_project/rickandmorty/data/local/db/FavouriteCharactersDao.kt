@@ -9,7 +9,7 @@ interface FavouriteCharactersDao {
     @Query("SELECT * FROM favourite_characters")
     suspend fun getAllCharacters(): List<CharacterDbEntity>
 
-    @Query("SELECT * FROM favourite_characters WHERE id = :id")
+    @Query("SELECT * FROM favourite_characters WHERE idCharacter = :id")
     suspend fun getCharacter(id: Int): CharacterDbEntity
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

@@ -1,21 +1,19 @@
 package ru.spbstu_software_design_project.rickandmorty.presentation.detail
 
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import ru.spbstu_software_design_project.rickandmorty.domain.model.CharacterDetails
+import ru.spbstu_software_design_project.rickandmorty.domain.usecase.GetDetailCharacterUseCase
+import javax.inject.Inject
 
-class CharacterDetailViewModel : ViewModel(){
+@HiltViewModel
+class CharacterDetailViewModel @Inject constructor(
+    private val getDetailCharacterUseCase: GetDetailCharacterUseCase
+) : ViewModel() {
     private val _character: MutableStateFlow<CharacterDetails> = MutableStateFlow(
-        CharacterDetails(
-            id = 1,
-            imageUrl ="https://picsum.photos/id/237/200/300",
-            name = "Rick Sanchez",
-            status = "Alive",
-            species = "Human",
-            origin = "Earth",
-            gender = "Male"
-        )
+       getDetailCharacterUseCase.invoke(1)
     )
-    val character : StateFlow<CharacterDetails> get() = _character
+    val character: StateFlow<CharacterDetails> get() = _character
 }

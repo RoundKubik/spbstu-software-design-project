@@ -1,15 +1,17 @@
 package ru.spbstu_software_design_project.rickandmorty.data.local.model
 
 import androidx.room.Entity
+import androidx.room.PrimaryKey
 import ru.spbstu_software_design_project.rickandmorty.domain.model.Character
 import ru.spbstu_software_design_project.rickandmorty.domain.model.CharacterDetails
 
 @Entity(
     tableName = "favourite_characters",
-    primaryKeys = ["id"]
+    primaryKeys = ["idCharacter"]
 )
 data class CharacterDbEntity(
-    val id: Int,
+    @PrimaryKey
+    val idCharacter: Int,
     val name: String,
     val status: String,
     val species: String,
@@ -31,7 +33,7 @@ fun mapCharacterToCharacterDbEntity(character: Character) = CharacterDbEntity(
 )
 
 fun CharacterDbEntity.toCharacter() = Character(
-    id = id,
+    id = idCharacter,
     imageUrl = image,
     name = name,
     status = status,
@@ -43,7 +45,7 @@ fun CharacterDbEntity.toCharacter() = Character(
 )
 
 fun CharacterDbEntity.toCharacterDetails() = CharacterDetails(
-    id = id,
+    id = idCharacter,
     imageUrl = image,
     name = name,
     status = status,
