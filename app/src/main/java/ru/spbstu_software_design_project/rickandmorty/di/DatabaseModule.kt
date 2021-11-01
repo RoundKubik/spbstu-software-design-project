@@ -33,10 +33,10 @@ object DatabaseModule {
     fun provideFavouriteCharactersDao(appDatabase: AppDatabase): FavouriteCharactersDao =
         appDatabase.favouriteCharactersDao()
 
-
+/*
     @Provides
     @Singleton
     fun providesDetailCharactersDao(appDatabase: AppDatabase): DetailCharactersDao =
-        appDatabase.detailCharacterDao()
+        appDatabase.detailCharacterDao()*/
 
 }

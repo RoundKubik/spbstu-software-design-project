@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="launch_animation_repeat_count" type="integer">1</item>
+    <item name="launch_animation_playing_speed" type="integer">1</item>
+    <item name="launch_animation_resource_file" type="string">morty_cry_loader.json</item>
+    <item name="launch_animation_auto_play" type="bool">true</item>
+    <item name="launch_animation_loop" type="bool">true</item>
+</resources>

@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/ic_item_unlike.xml" value="0.1135" />
+        <entry key="app/src/main/res/drawable/ic_splash_crying_morty.xml" value="0.1225" />
+        <entry key="app/src/main/res/drawable/launch_screen.xml" value="0.1" />
         <entry key="app/src/main/res/font/work_sans.xml" value="0.11770833333333333" />
         <entry key="app/src/main/res/layout/activity_launch.xml" value="0.1838905775075988" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.14537037037037037" />

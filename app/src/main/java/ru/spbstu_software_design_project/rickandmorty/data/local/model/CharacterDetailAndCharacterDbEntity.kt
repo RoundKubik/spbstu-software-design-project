@@ -1,3 +1,4 @@
+/*
 package ru.spbstu_software_design_project.rickandmorty.data.local.model
 
 import androidx.room.Embedded
@@ -12,3 +13,4 @@ data class CharacterDetailAndCharacterDbEntity(
     )
     val detailCharacterDbEntity: DetailCharacterDbEntity
 )
+*/

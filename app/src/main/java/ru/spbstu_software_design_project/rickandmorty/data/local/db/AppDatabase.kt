@@ -9,7 +9,7 @@ import ru.spbstu_software_design_project.rickandmorty.data.local.model.DetailCha
 
 
 @Database(
-    entities = [CharacterDbEntity::class, DetailCharacterDbEntity::class],
+    entities = [CharacterDbEntity::class],
     version = 1,
     exportSchema = false
 )
@@ -17,7 +17,6 @@ import ru.spbstu_software_design_project.rickandmorty.data.local.model.DetailCha
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun favouriteCharactersDao(): FavouriteCharactersDao
-    abstract fun detailCharacterDao(): DetailCharactersDao
 
     companion object {
         const val DATABASE_NAME = "characters.db"
