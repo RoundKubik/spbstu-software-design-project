@@ -1,7 +1,6 @@
 package ru.spbstu_software_design_project.rickandmorty.data.local.db
 
 import androidx.room.*
-import ru.spbstu_software_design_project.rickandmorty.data.local.model.CharacterDetailAndCharacterDbEntity
 import ru.spbstu_software_design_project.rickandmorty.data.local.model.DetailCharacterDbEntity
 
 
@@ -17,8 +16,8 @@ interface DetailCharactersDao {
     @Delete
     suspend fun delete(character: DetailCharacterDbEntity)
 
-
+/*
     @Transaction
     @Query("SELECT * FROM detail_characters WHERE id = :id")
-    suspend fun getCharacterWithDetail(id: Int): CharacterDetailAndCharacterDbEntity
+    suspend fun getCharacterWithDetail(id: Int): CharacterDetailAndCharacterDbEntity*/
 }

@@ -12,7 +12,7 @@ import javax.inject.Singleton
 @Singleton
 class FavouriteCharactersDataSourceImpl @Inject  constructor(
     private val favouriteCharactersDao: FavouriteCharactersDao,
-    private val detailCharactersDao: DetailCharactersDao
+  //  private val detailCharactersDao: DetailCharactersDao
 ) : FavouriteCharactersDataSource {
 
     suspend fun getFavouriteCharacters() =

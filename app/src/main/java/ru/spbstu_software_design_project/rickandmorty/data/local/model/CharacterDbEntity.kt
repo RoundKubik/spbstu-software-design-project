@@ -10,7 +10,6 @@ import ru.spbstu_software_design_project.rickandmorty.domain.model.CharacterDeta
     primaryKeys = ["idCharacter"]
 )
 data class CharacterDbEntity(
-    @PrimaryKey
     val idCharacter: Int,
     val name: String,
     val status: String,

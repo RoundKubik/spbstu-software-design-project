@@ -15,15 +15,19 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 abstract class AppModule {
 
-    @Singleton
-    @Provides
-    fun provideApplication(@ApplicationContext app: Context): RickAndMortyApp {
-        return app as RickAndMortyApp
+
+    companion object {
+        @Singleton
+        @Provides
+        fun provideApplication(@ApplicationContext app: Context): RickAndMortyApp {
+            return app as RickAndMortyApp
+        }
+
+        @Singleton
+        @Provides
+        fun provideInternetUtil(@ApplicationContext app: RickAndMortyApp): InternetUtil =
+            InternetUtil(app)
     }
 
-    @Singleton
-    @Provides
-    fun provideInternetUtil(@ApplicationContext app: RickAndMortyApp): InternetUtil =
-        InternetUtil(app)
 
 }
