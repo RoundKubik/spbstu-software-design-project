@@ -2,6 +2,7 @@ package ru.spbstu_software_design_project.rickandmorty.presentation.list
 
 import android.view.ViewGroup
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -32,20 +33,23 @@ import ru.spbstu_software_design_project.rickandmorty.domain.model.Character
 fun CharacterCard(
     characterCard: Character,
     likeCharacter: (Character) -> Unit,
-    unlikeCharacter: (Character) -> Unit
+    unlikeCharacter: (Character) -> Unit,
+    onClickCharacter: (Character) -> Unit
 ) {
     Card(
         shape = RoundedCornerShape(12.dp),
         modifier = Modifier
             .fillMaxWidth()
-            .padding(10.dp),
+            .padding(10.dp)
+            .clickable {
+                onClickCharacter.invoke(characterCard)
+            },
         elevation = 8.dp
 
     ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .wrapContentSize()
         ) {
             Image(
                 painter = rememberImagePainter(characterCard.imageUrl),
@@ -58,8 +62,8 @@ fun CharacterCard(
             )
             Column(
                 modifier = Modifier
-                    .padding(top = 12.dp, start = 4.dp, end = 12.dp)
                     .weight(1f)
+                    .padding(top = 12.dp, start = 4.dp, end = 12.dp, bottom = 12.dp)
             ) {
                 Text(
                     text = characterCard.name,
@@ -74,7 +78,7 @@ fun CharacterCard(
                     fontSize = 18.sp,
                     fontFamily = workSansFamily,
                     fontWeight = FontWeight.Normal,
-                    modifier = Modifier.padding(top = 2.dp)
+                    modifier = Modifier.padding(vertical = 2.dp)
                 )
             }
             AndroidView(
@@ -101,6 +105,7 @@ fun CharacterCard(
                                 R.drawable.ic_item_unlike
                             )
                         )
+                        isLiked = characterCard.isLiked
                         setOnLikeListener(object : OnLikeListener {
                             override fun liked(likeButton: LikeButton?) {
                                 likeCharacter.invoke(characterCard)

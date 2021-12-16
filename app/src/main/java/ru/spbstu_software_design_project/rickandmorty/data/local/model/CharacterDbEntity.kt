@@ -1,9 +1,7 @@
 package ru.spbstu_software_design_project.rickandmorty.data.local.model
 
 import androidx.room.Entity
-import androidx.room.PrimaryKey
 import ru.spbstu_software_design_project.rickandmorty.domain.model.Character
-import ru.spbstu_software_design_project.rickandmorty.domain.model.CharacterDetails
 
 @Entity(
     tableName = "favourite_characters",
@@ -41,14 +39,4 @@ fun CharacterDbEntity.toCharacter() = Character(
     origin = origin,
     gender = gender,
     isLiked = true
-)
-
-fun CharacterDbEntity.toCharacterDetails() = CharacterDetails(
-    id = idCharacter,
-    imageUrl = image,
-    name = name,
-    status = status,
-    species = species,
-    origin = origin,
-    gender = gender
 )

@@ -10,6 +10,7 @@ android {
     compileSdk 31
 
     defaultConfig {
+
         applicationId "ru.spbstu_software_design_project.rickandmorty"
         minSdk 21
         targetSdk 31
@@ -43,7 +44,7 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerVersion "1.5.10"
+        kotlinCompilerVersion "1.6.0-RC"
         kotlinCompilerExtensionVersion "1.0.0-beta08"
     }
     packagingOptions {
@@ -58,6 +59,10 @@ android {
 
 dependencies {
 
+    implementation "androidx.compose.ui:ui:$compose_version"
+    implementation "androidx.compose.ui:ui-tooling-preview:$compose_version"
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
     def room_version = "2.3.0"
 
     implementation 'androidx.core:core-ktx:1.6.0'
@@ -68,7 +73,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     // Integration with activities
-    implementation 'androidx.activity:activity-compose:1.3.1'
+    implementation 'androidx.activity:activity-compose:1.4.0'
     // Compose Material Design
     implementation 'androidx.compose.material:material:1.0.5'
     // Animations
@@ -81,7 +86,9 @@ dependencies {
     androidTestImplementation 'androidx.compose.ui:ui-test-junit4:1.0.5'
     // Integration with observables
     implementation 'androidx.compose.runtime:runtime-livedata:1.0.5'
+    implementation "androidx.hilt:hilt-navigation-compose:1.0.0-rc01"
 
+    implementation "androidx.navigation:navigation-compose:2.4.0-alpha07"
     // corouttines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0-RC'
 
@@ -93,8 +100,7 @@ dependencies {
     implementation "com.google.dagger:hilt-android:2.35"
     kapt "com.google.dagger:hilt-android-compiler:2.35"
 
-    implementation "com.google.dagger:hilt-android:2.35"
-    kapt "com.google.dagger:hilt-compiler:2.35"
+    kapt 'androidx.hilt:hilt-compiler:1.0.0'
 
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
@@ -105,7 +111,7 @@ dependencies {
 
     implementation "androidx.paging:paging-compose:1.0.0-alpha14"
 
-    implementation 'com.squareup.okhttp3:okhttp:4.9.1'
+    implementation 'com.squareup.okhttp3:okhttp:5.0.0-alpha.2'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.9.1'
     implementation 'com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:0.8.0'
@@ -113,7 +119,8 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation "io.coil-kt:coil-compose:1.3.1"
     implementation 'androidx.multidex:multidex:2.0.1'
-
+    implementation "androidx.compose.runtime:runtime:1.1.0-rc01"
+    implementation "androidx.compose.compiler:compiler:1.1.0-rc01"
     implementation 'com.github.jd-alexander:LikeButton:0.2.3'
 
     // rx
@@ -121,4 +128,10 @@ dependencies {
     implementation 'io.reactivex.rxjava3:rxjava:3.0.0'
 
     implementation 'com.airbnb.android:lottie:3.7.0'
+
+    annotationProcessor 'com.google.dagger:hilt-android-compiler:2.35'
+
+    // Hilt Jetpack Integrations
+    implementation 'androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03'
+    annotationProcessor 'androidx.hilt:hilt-compiler:1.0.0'
 }

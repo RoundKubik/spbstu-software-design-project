@@ -17,4 +17,7 @@ interface FavouriteCharactersDao {
 
     @Delete
     suspend fun delete(character: CharacterDbEntity)
+
+    @Query("SELECT COUNT(*) FROM favourite_characters WHERE idCharacter= :id")
+    suspend fun getCountOfCharactersWithId(id: Int): Long
 }

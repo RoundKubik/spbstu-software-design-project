@@ -9,7 +9,7 @@ import javax.inject.Singleton
 class GetFavouriteCharactersUseCase @Inject constructor(
     private val charactersRepository: CharactersRepository
 ) {
-    operator fun invoke(): List<Character> {
+    suspend operator fun invoke(): List<Character> {
         return charactersRepository.getFavouriteCharacters()
     }
 }

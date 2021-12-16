@@ -1,9 +1,10 @@
 <resources>
-    <string name="app_name">RickAndMorty</string>
-
-    <string name="detail_character_status_title">Status:</string>
-    <string name="detail_character_species_title">Species:</string>
-    <string name="detail_character_origin_title">Origin:</string>
-    <string name="detail_character_gender_title">Gender:</string>
+   <string name="app_name">RickAndMortyTest</string>
+   <string name="detail_character_status_title">Status:</string>
+   <string name="detail_character_species_title">Species:</string>
+   <string name="detail_character_origin_title">Origin:</string>
+   <string name="detail_character_gender_title">Gender:</string>
+   <string name="error_loading_character_from_data">Error in loading data from database</string>
+    <string name="title_activity_detail">Detail</string>>
 
 </resources>

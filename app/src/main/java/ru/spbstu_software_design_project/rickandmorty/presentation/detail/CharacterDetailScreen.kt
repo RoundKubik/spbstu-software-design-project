@@ -2,15 +2,12 @@ package ru.spbstu_software_design_project.rickandmorty.presentation.detail
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.stringResource
@@ -18,29 +15,24 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.core.content.ContextCompat
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
-import ru.spbstu_software_design_project.rickandmorty.domain.model.Character
-import ru.spbstu_software_design_project.rickandmorty.domain.model.CharacterDetails
 import ru.spbstu_software_design_project.rickandmorty.ui.theme.workSansFamily
 import ru.spbstu_software_design_project.rickandmorty.R
 
 @OptIn(ExperimentalCoilApi::class)
-@Preview
 @Composable
-fun DetailScreen(viewModel: CharacterDetailViewModel) {
-    val character = remember {
-        CharacterDetails(
-            id = 1,
-            imageUrl = "https://picsum.photos/id/237/200/300",
-            name = "Rick Sanchez",
-            status = "Alive",
-            species = "Human",
-            origin = "Earth",
-            gender = "Male"
-        )
-    }
+fun DetailScreen(
+    id: Int?,
+    viewModel: CharacterDetailViewModel = hiltViewModel<CharacterDetailViewModel>().apply {
+        load(id)
+    },
+    navController: NavController
+) {
+    val character = viewModel.character.collectAsState()
 
     Card(
         shape = RoundedCornerShape(12.dp),
@@ -53,7 +45,7 @@ fun DetailScreen(viewModel: CharacterDetailViewModel) {
     ) {
         Column {
             Image(
-                painter = rememberImagePainter(character.imageUrl),
+                painter = rememberImagePainter(character.value.imageUrl),
                 contentDescription = null,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
@@ -61,7 +53,7 @@ fun DetailScreen(viewModel: CharacterDetailViewModel) {
                     .height(250.dp)
             )
             Text(
-                text = character.name,
+                text = character.value.name,
                 color = Color.Black,
                 fontSize = 24.sp,
                 fontFamily = workSansFamily,
@@ -77,7 +69,7 @@ fun DetailScreen(viewModel: CharacterDetailViewModel) {
                     fontWeight = FontWeight.Bold
                 )
                 Text(
-                    text = character.status,
+                    text = character.value.status,
                     color = Color.Gray,
                     fontSize = 18.sp,
                     fontFamily = workSansFamily,
@@ -94,7 +86,7 @@ fun DetailScreen(viewModel: CharacterDetailViewModel) {
                     fontWeight = FontWeight.Bold
                 )
                 Text(
-                    text = character.species,
+                    text = character.value.species,
                     color = Color.Gray,
                     fontSize = 18.sp,
                     fontFamily = workSansFamily,
@@ -111,7 +103,7 @@ fun DetailScreen(viewModel: CharacterDetailViewModel) {
                     fontWeight = FontWeight.Bold
                 )
                 Text(
-                    text = character.origin,
+                    text = character.value.origin,
                     color = Color.Gray,
                     fontSize = 18.sp,
                     fontFamily = workSansFamily,
@@ -135,7 +127,7 @@ fun DetailScreen(viewModel: CharacterDetailViewModel) {
                     fontWeight = FontWeight.Bold
                 )
                 Text(
-                    text = character.gender,
+                    text = character.value.gender,
                     color = Color.Gray,
                     fontSize = 18.sp,
                     fontFamily = workSansFamily,
