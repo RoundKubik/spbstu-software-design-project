@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="size_launching_animation">375dp</dimen>
+    <dimen name="item_hero_image_size">64dp</dimen>
+    <dimen name="item_hero_like_size">32dp</dimen>
+    <dimen name="item_hero_card_radius">8dp</dimen>
+    <dimen name="normal_fab_size">64dp</dimen>
+    <dimen name="normal_like_icon_size">32dp</dimen>
+    <dimen name="main_text_size">24sp</dimen>
+    <dimen name="secondary_text_size">18sp</dimen>
+    <dimen name="detail_image_width">250dp</dimen>
+</resources>

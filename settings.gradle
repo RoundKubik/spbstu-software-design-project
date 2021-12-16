@@ -1,0 +1,23 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+    plugins {
+        id 'com.android.application' version '7.1.0-alpha13'
+        id 'com.android.library' version '7.1.0-alpha13'
+        id 'org.jetbrains.kotlin.android' version '1.6.10'
+        id 'kotlin-kapt'
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        mavenCentral { url "https://jitpack.io" }
+    }
+}
+rootProject.name = "RickAndMorty"
+include ':app'
