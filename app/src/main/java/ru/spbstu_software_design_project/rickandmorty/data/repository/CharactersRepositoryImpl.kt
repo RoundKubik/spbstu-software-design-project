@@ -1,38 +1,44 @@
 package ru.spbstu_software_design_project.rickandmorty.data.repository
 
+import androidx.paging.PagingSource
 import ru.spbstu_software_design_project.rickandmorty.data.remote.source.CharacterPagingSource
+import ru.spbstu_software_design_project.rickandmorty.data.source.CharactersDataSource
 import ru.spbstu_software_design_project.rickandmorty.data.source.FavouriteCharactersDataSource
 import ru.spbstu_software_design_project.rickandmorty.domain.repository.CharactersRepository
 import ru.spbstu_software_design_project.rickandmorty.domain.model.Character
-import ru.spbstu_software_design_project.rickandmorty.domain.model.CharacterDetails
+import ru.spbstu_software_design_project.rickandmorty.domain.model.RickAndMortyResult
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class CharactersRepositoryImpl @Inject constructor(
     private val favouriteCharactersDataSource: FavouriteCharactersDataSource,
-    private val charactersDataSource: CharacterPagingSource
+    private val charactersPagingSource: CharacterPagingSource,
+    private val charactersDataSource: CharactersDataSource
 ) : CharactersRepository {
 
-    override fun getCharactersPagingSource(): CharacterPagingSource = charactersDataSource
+    override fun getCharactersPagingSource(): PagingSource<Int, Character> =
+        charactersPagingSource
 
-    override fun getCharactersPagingSource(nextPage: Int) {
-        TODO("Not yet implemented")
+    override suspend fun getCharacter(id: Int): RickAndMortyResult<Character> {
+        return when (val favouriteCharacter = favouriteCharactersDataSource.getCharacter(id)) {
+            is RickAndMortyResult.Success -> {
+                RickAndMortyResult.Success(favouriteCharacter.data)
+            }
+            else -> {
+                charactersDataSource.getCharacter(id)
+            }
+        }
     }
 
-    override fun getCharacter(id: Int): CharacterDetails {
-        TODO("Not yet implemented")
+    override suspend fun getFavouriteCharacters(): List<Character> =
+        favouriteCharactersDataSource.getFavouriteCharacters()
+
+    override suspend fun insertCharactersToFavourite(character: Character) {
+        favouriteCharactersDataSource.insert(character = character)
     }
 
-    override fun getFavouriteCharacters(): List<Character> {
-        TODO("Not yet implemented")
-    }
-
-    override fun insertCharactersToFavourite() {
-        TODO("Not yet implemented")
-    }
-
-    override fun replaceCharacterFromFavourite() {
-        TODO("Not yet implemented")
+    override suspend fun replaceCharacterFromFavourite(character: Character) {
+        favouriteCharactersDataSource.replace(character = character)
     }
 }

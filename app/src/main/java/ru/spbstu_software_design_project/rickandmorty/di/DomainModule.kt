@@ -5,8 +5,10 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import org.w3c.dom.CharacterData
 import ru.spbstu_software_design_project.rickandmorty.data.remote.source.CharacterPagingSource
 import ru.spbstu_software_design_project.rickandmorty.data.repository.CharactersRepositoryImpl
+import ru.spbstu_software_design_project.rickandmorty.data.source.CharactersDataSource
 import ru.spbstu_software_design_project.rickandmorty.data.source.FavouriteCharactersDataSource
 import ru.spbstu_software_design_project.rickandmorty.domain.repository.CharactersRepository
 import ru.spbstu_software_design_project.rickandmorty.domain.usecase.AddFavouritesUseCase
@@ -23,10 +25,12 @@ abstract class DomainModule {
         @Provides
         fun providesCharactersRepository(
             favouriteCharactersDataSource: FavouriteCharactersDataSource,
-            charactersDataSource: CharacterPagingSource
+            charactersDataSource: CharacterPagingSource,
+            characterData: CharactersDataSource
         ): CharactersRepository =  CharactersRepositoryImpl(
             favouriteCharactersDataSource,
             charactersDataSource,
+            characterData
         )
 
         @Provides

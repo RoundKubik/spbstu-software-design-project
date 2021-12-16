@@ -7,7 +7,6 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import ru.spbstu_software_design_project.rickandmorty.data.local.db.AppDatabase
-import ru.spbstu_software_design_project.rickandmorty.data.local.db.DetailCharactersDao
 import ru.spbstu_software_design_project.rickandmorty.data.local.db.FavouriteCharactersDao
 import javax.inject.Singleton
 

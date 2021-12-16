@@ -1,7 +1,7 @@
 package ru.spbstu_software_design_project.rickandmorty.data.remote.model
 
 import kotlinx.serialization.SerialName
-import ru.spbstu_software_design_project.rickandmorty.domain.model.CharacterDetails
+import ru.spbstu_software_design_project.rickandmorty.domain.model.Character
 
 data class CharacterResponse(
     @SerialName("id") val id: Int,
@@ -18,13 +18,18 @@ data class CharacterResponse(
     @SerialName("created") val created: String
 )
 
+fun List<CharacterResponse>.toListCharacters() = map {
+    it.toCharacter()
+}
 
-fun CharacterResponse.toCharacterDetail() = CharacterDetails(
+fun CharacterResponse.toCharacter() = Character(
     id = id,
     name = name,
     status =  status,
     gender = gender,
     imageUrl = image,
     species = species,
-    origin = origin.name
+    origin = origin.name,
+    location = location.name,
+    isLiked = false
 )
